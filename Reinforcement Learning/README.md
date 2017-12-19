@@ -1,9 +1,24 @@
-## Introduction
+## Overview
 
-This repo contains impromtou implementations of agents and systems designed using CNTK and ONNX.
+|Environment:     |All OpenAI Gym's Atari Games
+|:---------|:---
+|Purpose   |Use CNTK to define Deep Q Neural Network (Mnih & al, 2013), a value-based Deep Reinforcement Learning method inspired by Q-Learning method. The program will learn how to play any Atari game.
+|Network   |DeepQNeuralNetwork (DQN).
+|Actions  |Sampled from space.
+|Comments |Using Dynamic Atari Learning Environment (ALE)
 
-**MS-CNTK** The Microsoft Cognitive Toolkit (https://cntk.ai), is a unified deep-learning toolkit that allows implementation of neural networks as a series of computational steps via a directed graph where leaf nodes represent input values or network parameters, while other nodes represent matrix operations upon their inputs. 
+## Running the example
 
-CNTK allows to easily realize and combine popular model types such as feed-forward DNNs, convolutional nets (CNNs), and recurrent networks (RNNs/LSTMs). It implements stochastic gradient descent (SGD, error backpropagation) learning with automatic differentiation and parallelization across multiple GPUs and servers.
+python DeepQNeuralNetwork.py -e [epochs] -p [environment]
 
-**ONNX** The Open Neural Network Exchange ONNX format is also supported by CNTK, it is an open-source shared model representation for framework interoperability and shared optimization.
+Some options are available: 
+
+- -e : Number of epochs to run (1 epoch = 250.000 actions taken)
+- -p : Turn on tensorboard plotting, to visualize training
+- Environment name, provided as trailing parameter to easily change the ALE environment
+ 
+ Example:
+ 
+ `
+ python DeepQNeuralNetwork.py -e 200 -p SpaceInvaders-v0
+ `
